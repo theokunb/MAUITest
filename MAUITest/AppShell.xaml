@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MAUITest.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:MAUITest.Views"
+    xmlns:local="clr-namespace:MAUITest"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar Route="WorkSpace">
+        <Tab Title="Счет">
+            <ShellContent ContentTemplate="{DataTemplate view:AccountPage}"/>
+        </Tab>
+        <Tab Title="Новая операция">
+            <ShellContent ContentTemplate="{DataTemplate view:NewOperationPage}"/>
+        </Tab>
+        <Tab Title="История">
+            <ShellContent ContentTemplate="{DataTemplate view:HistoryPage}"/>
+        </Tab>
+    </TabBar>
+
+</Shell>
