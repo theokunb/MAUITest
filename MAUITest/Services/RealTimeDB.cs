@@ -12,6 +12,7 @@ namespace MAUITest.Services
             client = new FirebaseClient(key);
         }
 
+
         private static RealTimeDB realTimeDB = new RealTimeDB(Strings.RealTimeDataBaseKey);
         private readonly FirebaseClient client;
 
@@ -25,9 +26,15 @@ namespace MAUITest.Services
             await client.Child(Strings.TableOperations).PostAsync(content);
         }
 
-        public async Task<List<Operation>> GetOperationsAsync()
+        public async Task<List<Operation>> GetOperationsAsync(Filter filter = null)
         {
-            return (await client.Child(Strings.TableOperations).OnceAsync<Operation>()).Select(element => element.Object).ToList();
+            var collection = (await client.Child(Strings.TableOperations).OnceAsync<Operation>()).Select(element => element.Object).ToList();
+            if (filter == null)
+                return collection;
+            else
+            {
+                return filter.ApplyFilter(collection);
+            }
         }
         
         public async Task<float?> GetAccountAsync()

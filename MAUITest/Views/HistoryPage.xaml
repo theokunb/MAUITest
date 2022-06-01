@@ -10,64 +10,69 @@
     </ContentPage.Behaviors>
     <RefreshView IsRefreshing="{Binding IsRefreshingView}"
                  Command="{Binding CommandRefreshView}">
-        <ListView ItemsSource="{Binding Operations}">
-            <ListView.Header>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="Date"
+        <StackLayout Orientation="Vertical">
+            <Picker ItemsSource="{Binding Filters}"
+                    SelectedItem="{Binding SelectedFilter}"
+                    ItemDisplayBinding="{Binding Title}"/>
+            <ListView ItemsSource="{Binding Operations}">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Date"
                            Grid.Column="0"
                            Style="{x:StaticResource Key=CentredBoldLabel}"/>
-                    <Label Text="Amount"
+                        <Label Text="Amount"
                            Grid.Column="1"
                            Style="{x:StaticResource Key=CentredBoldLabel}"/>
-                    <Label Text="Type"
+                        <Label Text="Type"
                            Grid.Column="2"
                            Style="{x:StaticResource Key=CentredBoldLabel}"/>
-                    <Label Text="Category"
+                        <Label Text="Category"
                            Grid.Column="3"
                            Style="{x:StaticResource Key=CentredBoldLabel}"/>
-                    <Label Text="Comment"
+                        <Label Text="Comment"
                            Grid.Column="4"
                            Style="{x:StaticResource Key=CentredBoldLabel}"/>
-                </Grid>
-            </ListView.Header>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid IsClippedToBounds="True">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0"
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid IsClippedToBounds="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
                                    Text="{Binding DisplayDateTime}"
                                    Style="{x:StaticResource Key=CentredLabel}"/>
-                            <Label Grid.Column="1"
+                                <Label Grid.Column="1"
                                    Text="{Binding DisplayAmount}"
                                    Style="{x:StaticResource Key=CentredBoldLabel}"/>
-                            <Label Grid.Column="2"
+                                <Label Grid.Column="2"
                                    Text="{Binding TypeOperation}"
                                    Style="{x:StaticResource Key=CentredLabel}"/>
-                            <Label Grid.Column="3"
+                                <Label Grid.Column="3"
                                    Text="{Binding Category}"
                                    Style="{x:StaticResource Key=CentredLabel}"/>
-                            <Label Grid.Column="4"
+                                <Label Grid.Column="4"
                                    Text="{Binding DisplayComment}"
                                    Style="{x:StaticResource Key=CentredLabel}"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </RefreshView>
     <ContentPage.Resources>
         <Style TargetType="Label"
