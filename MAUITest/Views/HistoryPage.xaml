@@ -9,11 +9,18 @@
                                      Command="{Binding CommandAppearing}"/>
     </ContentPage.Behaviors>
     <RefreshView IsRefreshing="{Binding IsRefreshingView}"
-                 Command="{Binding CommandRefreshView}">
+                 Command="{Binding CommandRefreshView}"
+                 Margin="10">
         <StackLayout Orientation="Vertical">
             <Picker ItemsSource="{Binding Filters}"
-                    SelectedItem="{Binding SelectedFilter}"
-                    ItemDisplayBinding="{Binding Title}"/>
+                        SelectedItem="{Binding SelectedFilter}"
+                        ItemDisplayBinding="{Binding Title}">
+                <Picker.Shadow>
+                    <Shadow Brush="{x:StaticResource Black}"
+                            Radius="5"
+                            Opacity="0.8"/>
+                </Picker.Shadow>
+            </Picker>
             <ListView ItemsSource="{Binding Operations}">
                 <ListView.Header>
                     <Grid>

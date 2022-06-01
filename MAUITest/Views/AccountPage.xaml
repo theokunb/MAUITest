@@ -3,16 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:help="clr-namespace:MauiApp1.Helpers"
              x:Class="MAUITest.Views.AccountPage"
-             Title="AccountPage">
+             Title="Счет">
     <ContentPage.Behaviors>
         <help:EventToCommandBehavior EventName="Appearing"
                                      Command="{Binding CommandAppearing}"/>
     </ContentPage.Behaviors>
-    <StackLayout Orientation="Vertical">
+    <StackLayout Orientation="Vertical"
+                 Margin="10">
         <Label Text="Баланс:"
-               FontSize="Header"/>
+               FontSize="30"/>
         <Label Text="{Binding DisplayAccount}"
-               FontSize="Large"
+               FontSize="28"
                FontAttributes="Bold"/>
     </StackLayout>
 </ContentPage>

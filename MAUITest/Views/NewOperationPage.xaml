@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:help="clr-namespace:MauiApp1.Helpers"
              x:Class="MAUITest.Views.NewOperationPage"
-             Title="NewOperationPage">
+             Title="Новая операция">
     <ContentPage.Behaviors>
         <help:EventToCommandBehavior EventName="Appearing"
                                      Command="{Binding CommandAppearing}"/>
     </ContentPage.Behaviors>
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
@@ -30,15 +30,27 @@
                 <Label Text="Тип оперцаии:"/>
                 <Picker ItemsSource="{Binding Operations}"
                         ItemDisplayBinding="{Binding Title}"
-                        SelectedItem="{Binding SelectedType}"/>
+                        SelectedItem="{Binding SelectedType}">
+                    <Picker.Shadow>
+                        <Shadow Brush="{x:StaticResource Black}"
+                                Radius="5"
+                                Opacity="0.8"/>
+                    </Picker.Shadow>
+                </Picker>
             </VerticalStackLayout>
         </Grid>
         <Grid Grid.Row="1">
             <StackLayout Orientation="Vertical">
                 <Label Text="Категория:"/>
                 <Picker ItemsSource="{Binding Categories}"
-                            ItemDisplayBinding="{Binding Title}"
-                            SelectedItem="{Binding SelectedCategory}"/>
+                        ItemDisplayBinding="{Binding Title}"
+                        SelectedItem="{Binding SelectedCategory}">
+                    <Picker.Shadow>
+                        <Shadow Brush="{x:StaticResource Black}"
+                                Radius="5"
+                                Opacity="0.8"/>
+                    </Picker.Shadow>
+                </Picker>
             </StackLayout>
         </Grid>
         <Grid Grid.Row="2">
@@ -56,7 +68,15 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
                     Text="Сбросить"
-                    Command="{Binding CommandReset}"/>
+                    Command="{Binding CommandReset}"
+                    BackgroundColor="White"
+                    TextColor="{x:StaticResource Primary}">
+                <Button.Shadow>
+                    <Shadow Brush="{x:StaticResource Black}"
+                            Radius="5"
+                            Opacity="0.8"/>
+                </Button.Shadow>
+            </Button>
             <Button Grid.Column="1"
                     Text="Записать"
                     Command="{Binding CommandEdit}"/>
@@ -68,9 +88,9 @@
     </Grid>
     <ContentPage.Resources>
         <Style TargetType="Button">
-            <Setter Property="WidthRequest" Value="200"/>
+            <Setter Property="WidthRequest" Value="180"/>
             <Setter Property="Margin" Value="20"/>
-            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="End"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
         </Style>
     </ContentPage.Resources>
