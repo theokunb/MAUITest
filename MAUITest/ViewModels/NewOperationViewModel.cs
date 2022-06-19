@@ -107,6 +107,13 @@ namespace MAUITest.ViewModels
 
             if (float.TryParse(Amount, out float sum))
             {
+                if(sum <= 0)
+                {
+                    await Shell.Current.DisplayAlert("Ошибка", "Введены не корректрые данные", "Оk");
+                    Amount = string.Empty;
+                    Busy = false;
+                    return;
+                }
                 Operation operation = new()
                 {
                     Amount = sum,
