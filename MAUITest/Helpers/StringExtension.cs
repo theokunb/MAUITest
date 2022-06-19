@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace MAUITest.Helpers
 {
@@ -18,15 +14,13 @@ namespace MAUITest.Helpers
             var wholePart = parts[0];
             StringBuilder result = new StringBuilder();
 
-            int appenderSpaces = 0;
-            for(int i = 0; i < wholePart.Length ; i++)
+            for(int i = wholePart.Length - 1, count = 0; i >= 0; i--, count++)
             {
-                result.Append(wholePart[i]);
-                if (i > 0 && i % 3 == 0)
-                {
-                    result.Insert(i - 2 + appenderSpaces++, " ");
-                }
+                if (count % 3 == 0)
+                    result.Insert(0, ' ');
+                result.Insert(0, wholePart[i]);
             }
+
             if (parts.Length > 1)
             {
                 result.Append(".");
