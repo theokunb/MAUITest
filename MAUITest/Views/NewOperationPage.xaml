@@ -30,13 +30,7 @@
                 <Label Text="Тип оперцаии:"/>
                 <Picker ItemsSource="{Binding Operations}"
                         ItemDisplayBinding="{Binding Title}"
-                        SelectedItem="{Binding SelectedType}">
-                    <Picker.Shadow>
-                        <Shadow Brush="{x:StaticResource Black}"
-                                Radius="5"
-                                Opacity="0.8"/>
-                    </Picker.Shadow>
-                </Picker>
+                        SelectedItem="{Binding SelectedType}"/>
             </VerticalStackLayout>
         </Grid>
         <Grid Grid.Row="1">
@@ -44,13 +38,7 @@
                 <Label Text="Категория:"/>
                 <Picker ItemsSource="{Binding Categories}"
                         ItemDisplayBinding="{Binding Title}"
-                        SelectedItem="{Binding SelectedCategory}">
-                    <Picker.Shadow>
-                        <Shadow Brush="{x:StaticResource Black}"
-                                Radius="5"
-                                Opacity="0.8"/>
-                    </Picker.Shadow>
-                </Picker>
+                        SelectedItem="{Binding SelectedCategory}"/>
             </StackLayout>
         </Grid>
         <Grid Grid.Row="2">
@@ -69,14 +57,7 @@
             <Button Grid.Column="0"
                     Text="Сбросить"
                     Command="{Binding CommandReset}"
-                    BackgroundColor="White"
-                    TextColor="{x:StaticResource Primary}">
-                <Button.Shadow>
-                    <Shadow Brush="{x:StaticResource Black}"
-                            Radius="5"
-                            Opacity="0.8"/>
-                </Button.Shadow>
-            </Button>
+                    BackgroundColor="White"/>
             <Button Grid.Column="1"
                     Text="Записать"
                     Command="{Binding CommandEdit}"/>
